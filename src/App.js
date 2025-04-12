@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './App.css';
 import axios from 'axios';
 
+
 function App() {
   const row1 = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
   const row2 = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
@@ -13,7 +14,7 @@ function App() {
 
   const isValidWord = async (word) => {
     try {
-      const response = await axios.get(`https://wordsapiv1.p.mashape.com/words/${word}/entails`);
+      const response = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
       return response.data.length > 0;
     } catch (error) {
       console.error('invalid word', error);
